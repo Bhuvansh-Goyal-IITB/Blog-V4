@@ -1,0 +1,9 @@
+{% with messages = get_flashed_messages() %}
+  {% if messages %}
+    <ul class=flashes style="list-style-type:none; color: red;">
+    {% for message in messages %}
+        <li><p><em>{{ message }}</em></p></li>
+    {% endfor %}
+    </ul>
+  {% endif %}
+{% endwith %}
