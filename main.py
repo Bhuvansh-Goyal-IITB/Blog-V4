@@ -1,7 +1,7 @@
 import os
 from datetime import date
 from functools import wraps
-
+from typing import List
 from flask import Flask, render_template, redirect, url_for, flash, abort
 from flask_bootstrap import Bootstrap
 from flask_ckeditor import CKEditor
@@ -63,7 +63,7 @@ class BlogPost(db.Model):
     date = Column(String(250), nullable=False)
     body = Column(db.Text, nullable=False)
     img_url = Column(String(250), nullable=False)
-    comments: Mapped[list["Comment"]] = relationship(back_populates="post")
+    comments: Mapped[List["Comment"]] = relationship(back_populates="post")
 
 
 class Comment(db.Model):
@@ -82,8 +82,8 @@ class User(UserMixin, db.Model):
     name = Column(String(250), nullable=False)
     email = Column(String(250), nullable=False, unique=True)
     password = Column(String(250), nullable=False)
-    posts: Mapped[list["BlogPost"]] = relationship(back_populates="author")
-    comments: Mapped[list["Comment"]] = relationship(back_populates="author")
+    posts: Mapped[List["BlogPost"]] = relationship(back_populates="author")
+    comments: Mapped[List["Comment"]] = relationship(back_populates="author")
 
     def __init__(self, name, email, password):
         self.name = name
