@@ -8,3 +8,6 @@ gunicorn==21.2.0
 Jinja2==3.1.2
 Werkzeug==2.3.7
 WTForms==3.0.1
+psycopg2==2.9.8
+psycopg2-binary==2.9.8
+pymongo==4.5.0
