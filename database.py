@@ -7,7 +7,7 @@ import os
 class DataBaseManager:
     def __init__(self):
         mongo_password = os.environ["MONGO_PASSWORD"]
-        uri = f"mongodb+srv://Bhuvansh:{mongo_password}@blogcluster.u6anjcx.mongodb.net/?retryWrites=true&w=majority&appName=AtlasApp"
+        uri = f"mongodb+srv://Bhuvansh:{mongo_password}@prodcluster.v1ojbsm.mongodb.net/?retryWrites=true&w=majority&appName=AtlasApp"
         print(uri)
         # Create a new client and connect to the server
         self.client = MongoClient(uri, server_api=ServerApi('1'))
